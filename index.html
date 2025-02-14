@@ -3,406 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUIS XITADA</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #0059ff;
-            --secondary-color: #00ff6a;
-            --text-color: #ffffff;
-            --github-color: #000000;
-            --linkedin-color: #0077B5;
-            --twitter-color: #1DA1F2;
-            --email-color: #D44638;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-image: url('1.gif');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            margin: 0;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("962BAF84-3870-48B0-9D5F-5A8DABE5F155.gif");
-            background-size: cover;
-            backdrop-filter: blur(5px);
-            z-index: 0;
-        }
-
-        .profile-card {
-            background-color: #0000003d;
-            background-size: cover;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(73, 73, 73, 0.699);
-            padding: 30px;
-            text-align: center;
-            max-width: 350px;
-            width: 100%;
-            transition: transform 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        .profile-card:hover {
-            transform: scale(1.02);
-        }
-
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--primary-color);
-        }
-
-        .name {
-            margin: 15px 0 5px;
-            color: var(--text-color);
-        }
-
-        .title {
-            color: #00fff2;
-            background-image: url('download.webp');
-            margin-bottom: 20px;
-        }
-
-        .profile-stats {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
-
-        .stat {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stat-value {
-            font-weight: bold;
-            color: var(--primary-color);
-            font-size: 1.2em;
-        }
-
-        .stat-label {
-            color: #ffffff;
-            font-size: 0.8em;
-        }
-
-        .profile-actions {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: rgb(255, 255, 255);
-        }
-
-        .btn-secondary {
-            background-color: var(--secondary-color);
-            color: rgb(255, 255, 255);
-        }
-
-        .btn:hover {
-            opacity: 0.8;
-        }
-
-        .profile-description {
-            color: #fff0f0;
-            margin-bottom: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .social-icon {
-            text-decoration: none;
-            font-size: 1.5em;
-            opacity: 0.7;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon.github { color: var(--github-color); }
-        .social-icon.instagram { color: var(--secondary-color); }
-        .social-icon.discord { color: var(--primary-color); }
-
-        .social-icon:hover {
-            opacity: 1;
-            transform: scale(1.2);
-        }
-
-        .audio-player {
-            width: 100%;
-            max-width: 300px;
-            margin: 10px auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 2px solid rgb(72, 255, 0);
-            border-radius: 10px;
-            background-color: rgba(20, 20, 20, 0.5);
-            color: var(--text-color);
-            padding: 10px;
-        }
-
-        .album-cover {
-            width: 100px;
-            height: 100px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-       
-        .music-info {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .song-title {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .artist-name {
-            font-size: 14px;
-            color: var(--secondary-color);
-        }
-
-        .controls {
-            display: flex;
-            align-items: center;
-            width: 100%;
-        }
-
-        #play-pause {
-            background: none;
-            border: none;
-            color: var(--text-color);
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        #seek-bar {
-            flex: 1;
-            margin: 0 10px;
-        }
-
-        #current-time, #duration {
-            font-size: 14px;
-        }
-
-        .music-playlist {
-            display: none;
-            width: 100%;
-            max-width: 300px;
-            margin: 20px auto;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            padding: 10px;
-            color: var(--text-color);
-        }
-
-        .toggle-playlist {
-            background: none;
-            border: none;
-            color: var(--text-color);
-            font-size: 18px;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
-
-        .music-playlist ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .music-playlist li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .music-playlist .play-song {
-            background: none;
-            border: none;
-            color: var(--text-color);
-            font-size: 18px;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-        .btn-toggle-playlist {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: var(--text-color);
-    border: none;
-    border-radius: 25px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin: 20px auto;
-    display: block;
-}
-
-.btn-toggle-playlist:hover {
-    background-color: rgba(115, 255, 0, 0.425);
-    transform: scale(1.05);
-}
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <title>Luis Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
-    <div class="profile-card">
-        <div class="profile-header">
-            <img src="28.gif" alt="Profile Avatar" class="avatar">
-            <h2 class="name">LUIS XITADA</h2>
-            <p class="title">BEST DEV</p>
+    <section>
+        <video class="background-video" autoplay muted loop>
+            <source src="f7d7f6c2-e95c-40f8-b8c1-10f2f144ae84.mp4" type="video/mp4">
+        </video>
+  
+    <nav>
+           
         </div>
-        <div class="profile-stats">
-            <div class="stat">
-                <span class="stat-value">+30</span>
-                <span class="stat-label">Panel pc</span>
-            </div>
-            <div class="stat">
-                <span class="stat-value">+60</span>
-                <span class="stat-label">Panel ios</span>
-            </div>
-            <div class="stat">
-                <span class="stat-value">+50</span>
-                <span class="stat-label">Projects</span>
-            </div>
+        <div class="social-links" data-aos="flip-down" data-aos-duration="1000" data-aos-delay="1000">
+            <a href="https://github.com/luisXdiv"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/ysnn_luis/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://discord.gg/rinova-team"><i class="fa-brands fa-discord"></i></a>
+      
         </div>
-        <div class="profile-description">
-            <p>IM JUST A DEVELOPER.</p>
+    </nav>
+    <div class="main-container">
+        <div class="image" data-aos="zoom-in-right" data-aos-duration="2500">
+            <img src="photos\1.gif" alt="">
         </div>
-        <div class="social-links">
-            <a href="https://github.com/luisXdiv" class="social-icon github"><i class="fab fa-github"></i></a>
-            <a href="https://www.instagram.com/ysnn_luis/" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://discord.gg/b9DGC7hkC3" class="social-icon discord"><i class="fab fa-discord"></i></a>
-        </div>
-        <div class="audio-player">
-            <img src="1.gif" alt="Album Cover" class="album-cover">
-            <div class="music-info">
-                <div class="song-title" id="current-song-title">Skit</div>
-                <div class="artist-name" id="current-artist-name">l'Morphine</div>
+        <div class="content">
+            <h1 data-aos="fade-left" data-aos-duration="1000" data-aos-delay="800">Hey I'm <span>LUIS</span></h1>
+            <div class="typewriter" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="900">I'm a <span></span></div>
+            <p data-aos="flip-up" data-aos-duration="1000" data-aos-delay="1000">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, perferendis quas consectetur possimus maxime consequatur cupiditate eos dolorum molestias praesentium error exercitationem rem labore illo, in dolor, odio corporis excepturi?</p>
+           
+            <div class="audio-player" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1300">
+                <img src="photos/E8743A5F-9DA5-4043-ADEC-8AC0BAFD86C8.gif" alt="Album Cover" class="album-cover">
+                <div class="music-info">
+                    <div class="song-title" id="current-song-title"> OnlyFans</div>
+                    <div class="artist-name" id="current-artist-name">Bibi Babydoll </div>
+                </div>
+                <audio id="audio" autoplay src="Bibi Babydoll - OnlyFans (prod. d.silvestre) (Lyrics).mp3"></audio>
+                <div class="controls">
+                    <button id="play-pause" class="play"><i class="fas fa-play"></i></button>
+                    <input type="range" id="seek-bar" value="0">
+                    <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+                </div>
             </div>
-            <audio id="audio" autoplay src="Skit.mp3"></audio>
-            <div class="controls">
-                <button id="play-pause" class="play"><i class="fas fa-play"></i></button>
-                <input type="range" id="seek-bar" value="0">
-                <span id="current-time">0:00</span> / <span id="duration">0:00</span>
-            </div>
-        </div>
-        <button id="toggle-playlist" class="btn-toggle-playlist">Show Playlist</button>
-        <div class="music-playlist" id="music-playlist">
-            <ul>
-                <li>
-                    <button class="play-song" data-src="New Jeans Jersey REMIX [EXTENDED] by (Jiandro x Dxrkaii).mp3" data-title="New Jeans" data-artist="Jiandro x Dxrkaii"><i class="fas fa-play"></i></button>
-                    <span class="song-title">New Jeans</span> - <span class="artist-name">Jiandro x Dxrkaii</span>
-                </li>
-                <li>
-                    <button class="play-song" data-src="Adams (ft. Raid).mp3" data-title="Adams" data-artist="l'Morphine"><i class="fas fa-play"></i></button>
-                    <span class="song-title">Adams</span> - <span class="artist-name">l'Morphine</span>
-                </li>
-                <li>
-                    <button class="play-song" data-src="Skit.mp3" data-title="Skit" data-artist="l'Morphine"><i class="fas fa-play"></i></button>
-                    <span class="song-title">Skit</span> - <span class="artist-name">l'Morphine</span>
-                </li>
-            </ul>
         </div>
     </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-      
+        AOS.init({offset:0});
+    </script>
+    <script>
+        function hamburg(){
+            const navbar = document.querySelector(".dropdown")
+            navbar.style.transform = "translateY(0px)"
+        }
+        function cancel(){
+            const navbar = document.querySelector(".dropdown")
+            navbar.style.transform = "translateY(-500px)"
+        }
 
-            const audio = document.getElementById('audio');
-            const playPauseButton = document.getElementById('play-pause');
-            const seekBar = document.getElementById('seek-bar');
-            const currentTimeElement = document.getElementById('current-time');
-            const durationElement = document.getElementById('duration');
-            const playSongButtons = document.querySelectorAll('.play-song');
-            const togglePlaylistButton = document.getElementById('toggle-playlist');
-            const musicPlaylist = document.getElementById('music-playlist');
-            const currentSongTitle = document.getElementById('current-song-title');
-            const currentArtistName = document.getElementById('current-artist-name');
+        const audio = document.getElementById('audio');
+        const playPauseButton = document.getElementById('play-pause');
+        const seekBar = document.getElementById('seek-bar');
+        const currentTimeElement = document.getElementById('current-time');
+        const durationElement = document.getElementById('duration');
+        const playSongButtons = document.querySelectorAll('.play-song');
+        const togglePlaylistButton = document.getElementById('toggle-playlist');
+        const musicPlaylist = document.getElementById('music-playlist');
+        const currentSongTitle = document.getElementById('current-song-title');
+        const currentArtistName = document.getElementById('current-artist-name');
 
-            playPauseButton.addEventListener('click', function () {
-                if (audio.paused) {
-                    audio.play();
-                    playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
-                } else {
-                    audio.pause();
-                    playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
-                }
-            });
-
-            audio.addEventListener('timeupdate', function () {
-                const currentTime = audio.currentTime;
-                const duration = audio.duration;
-                seekBar.value = (currentTime / duration) * 100;
-                currentTimeElement.textContent = formatTime(currentTime);
-                durationElement.textContent = formatTime(duration);
-            });
-
-            seekBar.addEventListener('input', function () {
-                const seekTime = (seekBar.value / 100) * audio.duration;
-                audio.currentTime = seekTime;
-            });
-
-            playSongButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const songSrc = this.getAttribute('data-src');
-                    const songTitle = this.getAttribute('data-title');
-                    const artistName = this.getAttribute('data-artist');
-                    audio.src = songSrc;
-                    currentSongTitle.textContent = songTitle;
-                    currentArtistName.textContent = artistName;
-                    audio.play();
-                    playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
-                });
-            });
-
-            togglePlaylistButton.addEventListener('click', function () {
-                if (musicPlaylist.style.display === 'none' || musicPlaylist.style.display === '') {
-                    musicPlaylist.style.display = 'block';
-                    togglePlaylistButton.textContent = 'Hide Playlist';
-                } else {
-                    musicPlaylist.style.display = 'none';
-                    togglePlaylistButton.textContent = 'Show Playlist';
-                }
-            });
-
-            function formatTime(seconds) {
-                const minutes = Math.floor(seconds / 60);
-                const secs = Math.floor(seconds % 60);
-                return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+        playPauseButton.addEventListener('click', function () {
+            if (audio.paused) {
+                audio.play();
+                playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                audio.pause();
+                playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
             }
-       
+        });
+
+        audio.addEventListener('timeupdate', function () {
+            const currentTime = audio.currentTime;
+            const duration = audio.duration;
+            seekBar.value = (currentTime / duration) * 100;
+            currentTimeElement.textContent = formatTime(currentTime);
+            durationElement.textContent = formatTime(duration);
+        });
+
+        seekBar.addEventListener('input', function () {
+            const seekTime = (seekBar.value / 100) * audio.duration;
+            audio.currentTime = seekTime;
+        });
+
+        playSongButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const songSrc = this.getAttribute('data-src');
+                const songTitle = this.getAttribute('data-title');
+                const artistName = this.getAttribute('data-artist');
+                audio.src = songSrc;
+                currentSongTitle.textContent = songTitle;
+                currentArtistName.textContent = artistName;
+                audio.play();
+                playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+            });
+        });
+
+        togglePlaylistButton.addEventListener('click', function () {
+            if (musicPlaylist.style.display === 'none' || musicPlaylist.style.display === '') {
+                musicPlaylist.style.display = 'block';
+                togglePlaylistButton.textContent = 'Hide Playlist';
+            } else {
+                musicPlaylist.style.display = 'none';
+                togglePlaylistButton.textContent = 'Show Playlist';
+            }
+        });
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+        }
     </script>
 </body>
 </html>
