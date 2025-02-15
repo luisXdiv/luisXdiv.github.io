@@ -15,8 +15,19 @@ html, body {
 body{
     width: 100%;
     height: 100vh;
+    background-image: url("f268b792b7c7aae899e9c98a01ac31d4.jpg");
+    background-size: cover;
+    background-position: center;
+  
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
     position: relative;
+}
+link[rel="icon"] {
+    width: 100%;
+    height: 100vh;
+   
 }
 .mouse-image {
     position: absolute;
@@ -43,7 +54,7 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-    height: 120%;
+    height: 125%;
     object-fit: cover;
     z-index: -1;
 }
@@ -224,6 +235,7 @@ section{
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    
     width: 3rem;
     height: 3rem;
     background-color: transparent;
@@ -233,6 +245,12 @@ section{
     margin: 5px 10px;
     font-size: 1.5rem;
     transition: 0.2s linear;
+}
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0;
 }
 .social-links i:hover{
     transform: scale(1.3);
